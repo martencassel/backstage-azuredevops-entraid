@@ -2,6 +2,8 @@
 
 This guide will walk you through setting up and deploying a Backstage application using Azure DevOps, Entra ID, Docker, and Kubernetes.
 
+![Overview](./overview.png)
+
 ## Prerequisites
 
 - **Entra ID**: See a manifest for an app registration in [`./examples/entra-id-app-reg-manifest.json`] "$HOME//backstage/hello-backstage/examples/entra-id-app-reg-manifest.json").
