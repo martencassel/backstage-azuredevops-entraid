@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: dogstore
+  description: The Dogstore API
+spec:
+  type: openapi
+  lifecycle: production
+  owner: APIAvengers
+  system: dog-engagement-portal

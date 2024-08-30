@@ -1,0 +1,39 @@
+services:
+
+  backend:
+    image:  acrXXXX.azurecr.io/my-backstage:latest
+    container_name: backstage
+    environment:
+      - POSTGRES_HOST=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+      - PAT_TOKEN=pattoken
+      - CLIENT_ID=clientid
+      - CLIENT_SECRET=clientsecret
+
+    ports:
+      - 7007:7007
+    networks:
+      - backend
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - PGUSER=postgres
+      - POSTGRES_DB=postgres
+    networks:
+      - backend
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  backend:

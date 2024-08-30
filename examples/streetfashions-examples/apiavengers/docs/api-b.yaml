@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: catstore
+  description: The Catstore API
+spec:
+  type: openapi
+  lifecycle: production
+  owner: APIAvengers
+  system: cat-engagement-portal

@@ -1,0 +1,40 @@
+global:
+  imageRegistry: "acrXXXX.azurecr.io"
+
+diagnosticMode:
+  enabled: false
+  command:
+    - sleep
+  args:
+    - infinity
+ingress:
+  enabled: false
+
+backstage:
+  replicas: 1
+  revisionHistoryLimit: 10
+  extraEnvVarsSecrets:
+    - backstage-secret
+  image:
+    repository: my-backstage
+    tag: latest
+    pullPolicy: Always
+  containerPorts:
+    backend: 7007
+  command: ["node", "packages/backend", "--config", "app-config.yaml", "--config", "app-config.production.yaml"]
+
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations: {}
+  host: "backstage.local"
+  path: "/"
+  tls:
+    enabled: false
+
+postgresql:
+  enabled: true
+  auth:
+    username: postgres
+    existingSecret: "postgres-secret"
+  architecture: standalone

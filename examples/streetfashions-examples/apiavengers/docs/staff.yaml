@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: APIAvengers
+  description: API Avengers
+spec:
+  type: team
+  profile:
+    displayName: API Avengers
+    email: APIAvengers@streetfashions.com
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: svens
+spec:
+  profile:
+    displayName: Sven S
+    email: svens@example.com
+  memberOf: [APIAvengers]
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: alfons
+spec:
+  profile:
+    displayName: ALfons S
+    email: alfonss@example.com
+  memberOf: [APIAvengers]
+

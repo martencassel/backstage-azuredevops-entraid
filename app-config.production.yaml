@@ -1,0 +1,45 @@
+app:
+  baseUrl: http://localhost:7007
+
+backend:
+  baseUrl: http://localhost:7007
+  listen: 
+    port: 7007
+
+  database:
+    client: pg
+    connection:
+      host: ${POSTGRES_HOST}
+      port: ${POSTGRES_PORT}
+      user: ${POSTGRES_USER}
+      password: ${POSTGRES_PASSWORD}
+
+integrations:
+  azure:
+    - host: dev.azure.com
+      credentials:
+        - personalAccessToken: ${PAT_TOKEN}
+
+auth:
+  allowedDomain: "mcpop28hotmail.onmicrosoft.com"
+  environment: development
+  providers:
+    microsoft:
+      development:
+        clientId: ${CLIENT_ID}
+        clientSecret: ${CLIENT_SECRET}
+        tenantId: eae8f419-7a8a-4021-9ab3-c4059324846d
+
+catalog:
+  providers:
+    azureDevOps:
+      streetfashions:
+        organization: "streetfashions"
+        project: "*"
+        repository: "*"
+        schedule:
+          frequency: { minutes: 3 }
+          timeout: { minutes: 1 }
+
+  rules:
+    - allow: [Component, System, API, Resource, Location, Group, User]
