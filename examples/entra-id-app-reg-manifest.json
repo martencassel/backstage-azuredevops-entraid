@@ -15,7 +15,7 @@
 	"isFallbackPublicClient": null,
 	"nativeAuthenticationApisEnabled": null,
 	"notes": null,
-	"publisherDomain": "mcpop28hotmail.onmicrosoft.com",
+	"publisherDomain": "<domain>.onmicrosoft.com",
 	"serviceManagementReference": null,
 	"signInAudience": "AzureADMyOrg",
 	"tags": [],
