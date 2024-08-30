@@ -21,7 +21,7 @@ integrations:
         - personalAccessToken: ${PAT_TOKEN}
 
 auth:
-  allowedDomain: "mcpop28hotmail.onmicrosoft.com"
+  allowedDomain: "domain"
   environment: development
   providers:
     microsoft:
